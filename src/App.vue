@@ -1,7 +1,8 @@
 <template>
   <main class="main-wrapper">
-    <video autoplay></video>
-    <button @click="startStream">Camera</button>
+    <!-- <video autoplay></video>
+    <button @click="startStream">Camera</button> -->
+    <h3>{{ name }}</h3>
     <header-todo />
 
     <task-input @emit-add-task="addTask" />
@@ -47,7 +48,8 @@ console.log("dateFns ", dateFns);
 const state = reactive({
   currentView: "All",
   taskList: [],
-  isPlay: false,
+  name: "",
+  // isPlay: false,
 });
 
 const taskLists = reactive({
@@ -103,39 +105,41 @@ const toggleEdit = (id) => {
   state.taskList[index].edit = !state.taskList[index].edit;
 };
 
-const startStream = () => {
-  const video = document.querySelector("video");
-  state.isPlay = !state.isPlay;
-  if (navigator.webkitGetUserMedia != null) {
-    const options = {
-      video: true,
-      audio: false,
-    };
+// const startStream = () => {
+//   const video = document.querySelector("video");
+//   state.isPlay = !state.isPlay;
+//   if (navigator.webkitGetUserMedia != null) {
+//     const options = {
+//       video: true,
+//       audio: false,
+//     };
 
-    navigator.getUserMedia(
-      options,
-      (stream) => {
-        video.srcObject = stream;
-        if (state.isPlay) {
-          video.play();
-        } else {
-          stream.getTracks().forEach(function (track) {
-            track.stop();
-          });
-        }
-      },
-      (err) => {
-        console.log("error happened", err.message);
-      }
-    );
-  }
-};
+//     navigator.getUserMedia(
+//       options,
+//       (stream) => {
+//         video.srcObject = stream;
+//         if (state.isPlay) {
+//           video.play();
+//         } else {
+//           stream.getTracks().forEach(function (track) {
+//             track.stop();
+//           });
+//         }
+//       },
+//       (err) => {
+//         console.log("error happened", err.message);
+//       }
+//     );
+//   }
+// };
 
 onMounted(() => {
   Telegram.WebApp.ready();
 
   const initData = Telegram.WebApp.initData || "";
   const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
+
+  state.name = initDataUnsafe.user.first_name;
 });
 </script>
 
