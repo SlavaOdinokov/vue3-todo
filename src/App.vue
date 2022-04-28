@@ -5,7 +5,7 @@
 
     <header-todo />
 
-    <h3>{{ name }}</h3>
+    <p>initData: {{ state.name }}</p>
 
     <task-input @emit-add-task="addTask" />
 
