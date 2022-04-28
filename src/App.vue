@@ -141,9 +141,9 @@ onMounted(() => {
   );
   document.head.appendChild(recaptchaScript);
 
-  Telegram.WebApp.ready();
-  const initData = Telegram.WebApp.initData || "";
-  const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
+  window.Telegram.WebApp.ready();
+  const initData = window.Telegram.WebApp.initData || "";
+  const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
 
   state.name = initDataUnsafe.user.first_name;
 });
