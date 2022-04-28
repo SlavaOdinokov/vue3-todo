@@ -2,10 +2,9 @@
   <main class="main-wrapper">
     <!-- <video autoplay></video>
     <button @click="startStream">Camera</button> -->
+    <h3 class="greeting">Hi {{ state.name }}!</h3>
 
     <header-todo />
-
-    <p>initData: {{ state.name }}</p>
 
     <task-input @emit-add-task="addTask" />
 
@@ -142,7 +141,7 @@ onMounted(() => {
 
   console.log("Telegram.WebApp", Telegram.WebApp);
 
-  state.name = JSON.stringify(initDataUnsafe, null, 2);
+  state.name = initDataUnsafe.user.first_name;
 });
 </script>
 
@@ -151,5 +150,12 @@ onMounted(() => {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 10px;
+}
+.greeting {
+  font-size: 28px;
+  letter-spacing: 1.84px;
+  color: #2d2d2d;
+  font-family: "DM Serif Display", serif;
+  margin-top: 50px;
 }
 </style>
