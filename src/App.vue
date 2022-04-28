@@ -144,13 +144,13 @@ onMounted(() => {
   document.head.appendChild(recaptchaScript);
 
   Telegram.WebApp.ready();
-  Telegram.WebApp.expand();
+  // Telegram.WebApp.expand();
   const initData = Telegram.WebApp.initData || "";
   const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
   console.log("Telegram.WebApp", Telegram.WebApp);
 
-  state.name = initData;
+  state.name = JSON.stringify(initDataUnsafe, null, 2);
 });
 </script>
 
