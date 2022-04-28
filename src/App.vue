@@ -2,8 +2,10 @@
   <main class="main-wrapper">
     <!-- <video autoplay></video>
     <button @click="startStream">Camera</button> -->
-    <h3>{{ name }}</h3>
+
     <header-todo />
+
+    <h3>{{ name }}</h3>
 
     <task-input @emit-add-task="addTask" />
 

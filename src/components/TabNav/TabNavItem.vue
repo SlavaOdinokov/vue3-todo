@@ -7,26 +7,26 @@
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue'
+import { defineProps, computed } from "vue";
 
 const props = defineProps({
   listName: {
     type: String,
-    required: true
+    required: true,
   },
   listLength: {
     type: Number,
-    required: true
+    required: true,
   },
   isActive: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
 const tabItemClassName = computed(() => {
-  return props.isActive ? 'tab-item is-active' : 'tab-item'
-})
+  return props.isActive ? "tab-item is-active" : "tab-item";
+});
 </script>
 
 <style scoped>
@@ -45,12 +45,12 @@ const tabItemClassName = computed(() => {
 .tab-item__button {
   background: transparent;
   color: #6b6b6b;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   letter-spacing: 1px;
   font-weight: 700;
   outline: none;
   border: 0;
   cursor: pointer;
-  transition: .2s;
+  transition: 0.2s;
 }
 </style>
