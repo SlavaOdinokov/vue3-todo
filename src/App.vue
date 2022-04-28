@@ -141,8 +141,10 @@ onMounted(() => {
 
   console.log("Telegram.WebApp", Telegram.WebApp);
 
+  const isMobile = !!navigator.userAgent.match(/.*Mobile/);
+
   // state.name = initDataUnsafe.user.first_name;
-  state.name = navigator.userAgent;
+  state.name = `${isMobile}`;
 });
 </script>
 
