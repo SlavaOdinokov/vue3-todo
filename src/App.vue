@@ -134,7 +134,7 @@ const toggleEdit = (id) => {
 // };
 
 onMounted(() => {
-  Telegram.WebApp.ready();
+  window.Telegram.WebApp.ready();
 
   const initData = Telegram.WebApp.initData || "";
   const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
