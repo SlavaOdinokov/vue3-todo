@@ -141,7 +141,8 @@ onMounted(() => {
 
   console.log("Telegram.WebApp", Telegram.WebApp);
 
-  state.name = initDataUnsafe.user.first_name;
+  // state.name = initDataUnsafe.user.first_name;
+  state.name = navigator.userAgent;
 });
 </script>
 
