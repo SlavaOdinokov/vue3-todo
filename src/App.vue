@@ -31,7 +31,7 @@ import HeaderTodo from "./components/HeaderTodo.vue";
 import TabNav from "./components/TabNav/TabNav.vue";
 import TaskList from "./components/TaskList.vue";
 import TaskInput from "./components/TaskInput.vue";
-import * as TelegramS from "../scripts/telegram-web-app";
+// import * as Telegram from "../scripts/telegram-web-app";
 
 import moment from "moment";
 import format from "date-fns/format";
@@ -142,11 +142,11 @@ onMounted(() => {
   document.head.appendChild(recaptchaScript);
 
   Telegram.WebApp.ready();
+  Telegram.WebApp.expand();
   const initData = Telegram.WebApp.initData || "";
   const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
   console.log("Telegram.WebApp", Telegram.WebApp);
-  console.log("TelegramS.WebApp", TelegramS.WebApp);
 
   state.name = initData;
 });
