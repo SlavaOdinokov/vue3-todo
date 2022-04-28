@@ -141,11 +141,13 @@ onMounted(() => {
   );
   document.head.appendChild(recaptchaScript);
 
-  window.Telegram.WebApp.ready();
-  const initData = window.Telegram.WebApp.initData || "";
-  const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe || {};
+  Telegram.WebApp.ready();
+  const initData = Telegram.WebApp.initData || "";
+  const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-  state.name = initDataUnsafe.user.first_name;
+  console.log("Telegram.WebApp", Telegram.WebApp);
+
+  state.name = initData;
 });
 </script>
 
