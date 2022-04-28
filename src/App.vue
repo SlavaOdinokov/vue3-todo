@@ -33,7 +33,6 @@ import HeaderTodo from "./components/HeaderTodo.vue";
 import TabNav from "./components/TabNav/TabNav.vue";
 import TaskList from "./components/TaskList.vue";
 import TaskInput from "./components/TaskInput.vue";
-// import * as Telegram from "../scripts/telegram-web-app";
 
 import moment from "moment";
 import format from "date-fns/format";
@@ -136,15 +135,8 @@ const toggleEdit = (id) => {
 // };
 
 onMounted(() => {
-  let recaptchaScript = document.createElement("script");
-  recaptchaScript.setAttribute(
-    "src",
-    "https://telegram.org/js/telegram-web-app.js"
-  );
-  document.head.appendChild(recaptchaScript);
-
   Telegram.WebApp.ready();
-  // Telegram.WebApp.expand();
+  Telegram.WebApp.expand();
   const initData = Telegram.WebApp.initData || "";
   const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
