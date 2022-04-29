@@ -26,6 +26,7 @@
 
 <script setup>
 import { reactive, computed, onMounted } from "vue";
+import { useRoute } from "vue-router";
 import { v4 as uuid } from "uuid";
 import IconRegistry from "./components/icon/icon-registry.vue";
 import HeaderTodo from "./components/HeaderTodo.vue";
@@ -35,6 +36,8 @@ import TaskInput from "./components/TaskInput.vue";
 
 import moment from "moment";
 import format from "date-fns/format";
+
+const route = useRoute();
 
 const date = "2021-02-10T19:34:32.227Z";
 const currentDateTime = () => {
@@ -136,15 +139,15 @@ const toggleEdit = (id) => {
 onMounted(() => {
   Telegram.WebApp.ready();
   Telegram.WebApp.expand();
-  const initData = Telegram.WebApp.initData || "";
-  const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
+  // const initData = Telegram.WebApp.initData || "";
+  // const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
   console.log("Telegram.WebApp", Telegram.WebApp);
 
-  const isMobile = !!navigator.userAgent.match(/.*Mobile/);
+  // const isMobile = !!navigator.userAgent.match(/.*Mobile/);
 
+  state.name = route.query;
   // state.name = initDataUnsafe.user.first_name;
-  state.name = `${isMobile}`;
 });
 </script>
 
