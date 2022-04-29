@@ -38,6 +38,7 @@ import moment from "moment";
 import format from "date-fns/format";
 
 const route = useRoute();
+console.log("route", route.query.test);
 
 const date = "2021-02-10T19:34:32.227Z";
 const currentDateTime = () => {
@@ -146,7 +147,7 @@ onMounted(() => {
 
   // const isMobile = !!navigator.userAgent.match(/.*Mobile/);
 
-  state.name = route.query;
+  state.name = route.query.test;
   // state.name = initDataUnsafe.user.first_name;
 });
 </script>
