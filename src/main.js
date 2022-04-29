@@ -3,7 +3,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import App from "./App.vue";
 import "./index.css";
 
-const routes = [{ path: "/home", component: App }];
+const routes = [{ path: "/", component: App }];
 
 const router = createRouter({
   history: createWebHistory(),

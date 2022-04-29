@@ -26,7 +26,7 @@
 
 <script setup>
 import { reactive, computed, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { v4 as uuid } from "uuid";
 import IconRegistry from "./components/icon/icon-registry.vue";
 import HeaderTodo from "./components/HeaderTodo.vue";
@@ -38,7 +38,7 @@ import moment from "moment";
 import format from "date-fns/format";
 
 const route = useRoute();
-console.log("route", route.query);
+const router = useRouter();
 
 const date = "2021-02-10T19:34:32.227Z";
 const currentDateTime = () => {
@@ -137,14 +137,15 @@ const toggleEdit = (id) => {
 //   }
 // };
 
-onMounted(() => {
+onMounted(async () => {
+  await router.isReady();
+
   Telegram.WebApp.ready();
   Telegram.WebApp.expand();
   // const initData = Telegram.WebApp.initData || "";
   // const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
   console.log("Telegram.WebApp", Telegram.WebApp);
-
   // const isMobile = !!navigator.userAgent.match(/.*Mobile/);
 
   state.name = JSON.stringify(route.query);
